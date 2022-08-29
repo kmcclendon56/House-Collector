@@ -5,14 +5,16 @@
 
 {% for house in houses %}
   <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ house.address }}</span>
-      <p>Rooms and Baths: {{ house.rooms_baths }}</p>
-      <p>Sqft: {{ house.sqft }}</p>
-      <p>Has Gas Stove: {{ house.gas_stove }}</p>
-      <p>Notes: {{ house.notes }}</p>
-      <p>Allows Dogs: {{ house.allows_dogs }}</p>
-    </div>
+    <a href="{% url 'detail' house.id %}">
+        <div class="card-content">
+                <span class="card-title">{{ house.address }}</span>
+                <p>Rooms and Baths: {{ house.rooms_baths }}</p>
+                <p>Sqft: {{ house.sqft }}</p>
+                <p>Has Gas Stove: {{ house.gas_stove }}</p>
+                <p>Notes: {{ house.notes }}</p>
+                <p>Allows Dogs: {{ house.allows_dogs }}</p>
+            </div>
+        </a>
   </div>
 {% endfor %}
 
