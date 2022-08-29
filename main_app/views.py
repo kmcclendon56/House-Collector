@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import House
+
 
 class House:
   def __init__(self, address, rooms_baths, sqft, gas_stove, notes, allows_dogs):
@@ -31,3 +33,7 @@ def about(request):
 
 def houses_index(request):
   return render(request, 'houses/index.html', { 'houses': houses })
+
+def house_details(request, house_id):
+    house = House.objects.get(id=house_id)
+    return render(request, 'house/detail.html', {'house': house})
