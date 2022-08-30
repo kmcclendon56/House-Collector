@@ -15,3 +15,24 @@ class House(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'house_id': self.id})
+
+
+CITY = (
+    ('A', 'Austin'),
+    ('R', 'Round Rock'),
+    ('P', 'Pflugerville'),
+    ('C', 'Cedar Park'),
+)
+
+class Location(models.Model):
+    city = models.CharField(
+        max_length=20,
+            choices=CITY,
+            default=CITY[0] [0]
+        )
+    neighborhood = models.CharField(max_length=100)
+
+    house = models.ForeignKey(House, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_city_display()} on {self.date}"
