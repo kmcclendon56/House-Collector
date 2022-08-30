@@ -13,6 +13,8 @@ body {
     text-align: right;
   }
 
-  .checks{
+  [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: absolute;
     opacity: 100;
-  }
+    pointer-events: none;
+}
