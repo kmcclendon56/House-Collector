@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import House
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 
@@ -24,3 +24,11 @@ def houses_detail(request, house_id):
 class HouseCreate(CreateView):
     model = House
     fields = '__all__'
+
+class HouseUpdate(UpdateView):
+  model = House
+  fields = ['rooms_baths', 'sqft', 'gas_stove', 'notes', 'allows_dogs']
+
+class HouseDelete(DeleteView):
+  model = House
+  success_url = '/houses/'

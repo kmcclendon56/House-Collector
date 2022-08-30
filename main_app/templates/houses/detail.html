@@ -11,7 +11,10 @@
     <p>Has Gas Stove: {{ house.gas_stove }}</p>
     <p>Notes: {{ house.notes }}</p>
     <p>Allows Dogs: {{ house.allows_dogs }}</p>
-    {% endif %}
+  </div>
+  <div class="card-action">
+    <a href="{% url 'houses_update' house.id %}">Edit</a>
+    <a href="{% url 'houses_delete' house.id %}">Delete</a>
   </div>
 </div>
 
