@@ -25,7 +25,7 @@ def houses_detail(request, house_id):
         })
 
 def assoc_feature(request, house_id, feature_id):
-  House.objects.get(id=house_id).features.add(features_id)
+  House.objects.get(id=house_id).features.add(feature_id)
   return redirect('detail', house_id=house_id)
 
 def add_location(request, house_id):
