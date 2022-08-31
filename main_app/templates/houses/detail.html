@@ -21,19 +21,33 @@
     </div>
   </div>
   <div class="col s6">
+    <form action="{% url 'add_location' house.id %}" method="post">
+        {% csrf_token %}
+        {{ location_form.as_p }}
+        <input type="submit" class="btn" value="Add Location">
+      </form>
+      <br>
     <table class="striped">
       <thead>
-        <tr><th>City</th><th>Neighborhood</th></tr>
+        <tr><th>Neighborhood</th><th>City</th></tr>
       </thead>
       <tbody>
         {% for location in house.location_set.all %}
           <tr>
-            <td>{{location.nieghborhood}}</td>
-            <td>{{locaiton.get_city_display}}</td>
+            <td>{{location.neighborhood}}</td>
+            <td>{{location.get_city_display}}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
 </div>
+
+
+<script>
+    const neighborhoodEl = document.getElementById('id_neighborhood');
+    
+    const selectEl = document.getElementById('id_city');
+    M.FormSelect.init(selectEl);
+</script>
 {% endblock %}
