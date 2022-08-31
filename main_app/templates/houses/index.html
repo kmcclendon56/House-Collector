@@ -10,26 +10,23 @@
             <span class="card-title">{{ house.address }}</span>
             <p>Rooms and Baths: {{ house.rooms_baths }}</p>
             <p>Sqft: {{ house.sqft }}</p>
-            <p>Has Gas Stove: {{ house.gas_stove }}</p>
             <p>Notes: {{ house.notes }}</p>
-            <p>Allows Dogs: {{ house.allows_dogs }}</p>
+            <form action="#">
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Has Gas Stove?</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" checked="checked" />
+                        <span>Allows Dogs?</span>
+                    </label>
+                </p>
         </div>
     </a>
 </div>
 {% endfor %}
 
 {% endblock %}
-
-<!-- <form action="#">
-    <p>
-      <label>
-        <input type="checkbox" />
-        <span>Has Gas Stove?</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input type="checkbox" checked="checked" />
-        <span>Allows Dogs?</span>
-      </label>
-    </p> -->

@@ -17,5 +17,5 @@ footer.page-footer {
 [type="checkbox"]:checked {
     position: absolute;
     opacity: 100;
-    pointer-events: none;
+    pointer-events:all;
 }
