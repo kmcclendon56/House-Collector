@@ -3,6 +3,15 @@ from django.db import models
 from django.urls import reverse
 
 
+class Feature(models.Model):
+  name = models.CharField(max_length=50)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('features_detail', kwargs={'pk': self.id})
+
 # Create your models here.
 class House(models.Model):
     address = models.CharField(max_length=100)
@@ -11,6 +20,7 @@ class House(models.Model):
     gas_stove = models.BooleanField(default=False)
     notes = models.CharField(max_length=300)
     allows_dogs = models.BooleanField()
+    features = models.ManyToManyField(Feature)
 
 
     def get_absolute_url(self):

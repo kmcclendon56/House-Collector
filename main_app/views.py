@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import House
+from django.views.generic import ListView, DetailView
+from .models import House, Feature
 from .forms import LocationForm
 
 
@@ -39,5 +40,23 @@ class HouseUpdate(UpdateView):
   fields = ['rooms_baths', 'sqft', 'gas_stove', 'notes', 'allows_dogs']
 
 class HouseDelete(DeleteView):
-  model = House
-  success_url = '/houses/'
+    model = House
+    success_url = '/houses/'
+
+class FeatureList(ListView):
+    model = Feature
+
+class FeatureDetail(DetailView):
+    model = Feature
+
+class FeatureCreate(CreateView):
+    model = Feature
+    fields = '__all__'
+
+class FeatureUpdate(UpdateView):
+    model = Feature
+    fields = ['name']
+
+class FeatureDelete(DeleteView):
+    model = Feature
+    success_url = '/features/'
